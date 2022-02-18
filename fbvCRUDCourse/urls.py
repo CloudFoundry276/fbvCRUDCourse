@@ -15,7 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from fbvCRUDCourseApp import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', views.getCourses),
+    path('course-add', views.addCourse),
+    path('course-update/<int:id>', views.updateCourse),
+    path('course-delete/<int:id>', views.deleteCourse),
 ]

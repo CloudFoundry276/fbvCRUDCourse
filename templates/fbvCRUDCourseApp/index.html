@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Courses List</title>
+</head>
+<body>
+    <a href="/course-add">Add Course</a>
+    <h1>Courses List</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Course Name</th>
+                <th>Course Description</th>
+                <th>Course Instructor</th>
+                <th>Course Rating</th>
+                <th>Op Update</th>
+                <th>Op Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% if courses %}
+            {% for course in courses %}
+            <tr>
+                <td>{{course.id}}</td>
+                <td>{{course.name}}</td>
+                <td>{{course.description}}</td>
+                <td>{{course.instructor}}</td>
+                <td>{{course.rating}}</td>
+                <td><a href="/course-update/{{course.id}}">Update</a></td>
+                <td><a href="/course-delete/{{course.id}}">Delete</a></td>
+            </tr>
+            {% endfor %}
+        {% else %}
+            <tr>
+                <td colspan="7">No Data Found</td>
+            </tr>
+        {% endif %}
+        </tbody>
+    </table>
+</body>
+</html>
